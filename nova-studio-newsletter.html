@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productividad Personal y Economía Digital — NOVA STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE6D8;
+    --paper-line: #D9CFBC;
+    --ink: #201F1A;
+    --ink-soft: #4B473E;
+    --mustard: #C2882A;
+    --mustard-deep: #96661C;
+    --teal: #1F6F63;
+    --navy: #131C33;
+    --navy-line: #263355;
+    --paper-on-navy: #E7E4DA;
+    --sky: #7FA8C9;
+    --max: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.05;
+    margin: 0;
+  }
+  p{ margin: 0 0 1em; max-width: 62ch; }
+  a{ color: inherit; }
+
+  .paper-texture{
+    background-image: radial-gradient(circle, var(--paper-line) 1.1px, transparent 1.1px);
+    background-size: 22px 22px;
+  }
+  .navy-texture{
+    background-image:
+      linear-gradient(var(--navy-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  .wrap--wide{ max-width: 920px; }
+
+  /* ===== NAV ===== */
+  .nav{
+    display:flex; justify-content: space-between; align-items:center;
+    padding: 26px 28px;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+  .nav strong{ font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; }
+  .nav span{ color: var(--ink-soft); }
+
+  /* ===== HERO ===== */
+  .hero{ padding: 40px 0 76px; }
+  .hero .kicker{
+    display:inline-block; font-size:0.82rem; color: var(--teal);
+    border-bottom: 1.5px solid var(--teal); padding-bottom: 3px; margin-bottom: 28px;
+    opacity: 0; animation: rise 0.7s 0.05s ease forwards;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 3.9rem);
+    max-width: 11ch;
+    opacity: 0; animation: rise 0.8s 0.18s ease forwards;
+  }
+  .hero h1 em{ font-style: italic; color: var(--mustard-deep); }
+  .hero .lede{
+    margin-top: 26px; font-size: 1.12rem; max-width: 46ch; color: var(--ink-soft);
+    opacity: 0; animation: rise 0.8s 0.32s ease forwards;
+  }
+  @keyframes rise{ from{ opacity:0; transform: translateY(14px);} to{ opacity:1; transform: translateY(0);} }
+  @media (prefers-reduced-motion: reduce){
+    .hero .kicker, .hero h1, .hero .lede{ animation: none; opacity: 1; }
+  }
+
+  /* ===== SECTION SCAFFOLD ===== */
+  section{ padding: 68px 0; }
+  .section-num{
+    font-family:'Fraunces', serif; font-size: 0.85rem; color: var(--mustard-deep);
+    margin-bottom: 10px;
+  }
+  .navy section .section-num, section.on-navy .section-num{ color: var(--sky); }
+  h2.section-title{ font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin-bottom: 22px; }
+  .on-navy h2.section-title{ color: var(--paper-on-navy); }
+  .on-navy p{ color: #C7C4B9; }
+
+  /* ===== KEY IDEA CALLOUT ===== */
+  .callout{
+    border-left: 3px solid var(--mustard);
+    padding: 18px 24px;
+    margin: 28px 0 10px;
+    background: rgba(194,136,42,0.08);
+    font-family:'Fraunces', serif;
+    font-size: 1.05rem;
+    max-width: 56ch;
+  }
+  .callout .neq{ color: var(--mustard-deep); }
+
+  /* ===== HERRAMIENTAS — asymmetric grid ===== */
+  .tools-grid{
+    display:grid; grid-template-columns: repeat(6, 1fr);
+    gap: 0; border-top: 1px solid var(--paper-line);
+  }
+  .tool{
+    padding: 22px 18px 22px 0;
+    border-bottom: 1px solid var(--paper-line);
+    grid-column: span 6;
+  }
+  .tool + .tool{ border-left: none; }
+  .tool h3{ font-size: 1rem; font-family:'Space Grotesk', sans-serif; font-weight:600; margin: 10px 0 6px; }
+  .tool p{ font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+  .tool svg{ width: 26px; height: 26px; stroke: var(--teal); }
+  @media(min-width: 620px){
+    .tool{ grid-column: span 3; padding-right: 24px; }
+    .tool:nth-child(odd){ border-right: 1px solid var(--paper-line); padding-right: 24px; }
+  }
+  @media(min-width: 900px){
+    .tool{ grid-column: span 2; }
+    .tool:not(:nth-child(3n)){ border-right: 1px solid var(--paper-line); }
+    .tool:nth-child(odd){ border-right: 1px solid var(--paper-line); }
+  }
+
+  /* ===== PROCESO — connected sequence ===== */
+  .process{ position: relative; margin-top: 30px; }
+  .process::before{
+    content:''; position:absolute; left: 21px; top: 8px; bottom: 8px;
+    width: 1px; background: var(--paper-line);
+  }
+  .step{ position: relative; padding: 0 0 34px 62px; }
+  .step:last-child{ padding-bottom: 0; }
+  .step .n{
+    position:absolute; left:0; top:-2px; width: 44px; height: 44px;
+    border-radius: 50%; background: var(--paper);
+    border: 1.5px solid var(--mustard);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; color: var(--mustard-deep);
+  }
+  .step h3{ font-size: 1.05rem; font-weight:600; margin-bottom: 4px; }
+  .step p{ font-size: 0.94rem; color: var(--ink-soft); margin:0; }
+
+  .example-box{
+    margin-top: 34px; padding: 22px 24px; background: var(--ink); color: var(--paper);
+    font-size: 0.92rem; line-height: 1.7;
+  }
+  .example-box .tag{ font-size: 0.78rem; color: #C9B98A; display:block; margin-bottom: 8px; }
+  .example-box strong{ color: var(--mustard); }
+
+  /* ===== ECONOMÍA DIGITAL banner ===== */
+  .pivot{
+    background: var(--navy); color: var(--paper-on-navy);
+  }
+
+  /* ===== CARACTERÍSTICAS — inline list on navy ===== */
+  .traits{ display:grid; grid-template-columns: 1fr; gap: 0; margin-top: 30px; }
+  .trait{
+    display:grid; grid-template-columns: 30px 1fr; gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--navy-line);
+    align-items: baseline;
+  }
+  .traits .trait:last-child{ border-bottom: 1px solid var(--navy-line); }
+  .trait .mark{ font-family:'Fraunces', serif; color: var(--sky); font-size: 1.1rem; }
+  .trait h3{ font-size: 1rem; font-weight: 600; color: var(--paper-on-navy); display:inline; }
+  .trait p{ font-size: 0.92rem; margin: 4px 0 0; }
+  @media(min-width: 700px){
+    .traits{ grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  }
+
+  /* ===== PILARES — columns ===== */
+  .pillars{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 34px; align-items: end;
+  }
+  .pillar{
+    background: rgba(127,168,201,0.09);
+    border-top: 3px solid var(--sky);
+    padding: 20px 14px 22px;
+  }
+  .pillar:nth-child(1){ padding-top: 34px; }
+  .pillar:nth-child(2){ padding-top: 10px; border-top-color: var(--mustard); }
+  .pillar:nth-child(3){ padding-top: 26px; }
+  .pillar:nth-child(4){ padding-top: 16px; border-top-color: var(--mustard); }
+  .pillar .num{ font-family:'Fraunces', serif; font-size: 1.6rem; color: var(--paper-on-navy); }
+  .pillar h3{ font-size: 0.92rem; font-weight:600; color: var(--paper-on-navy); margin: 8px 0 6px; }
+  .pillar p{ font-size: 0.82rem; margin:0; }
+  @media(max-width: 640px){
+    .pillars{ grid-template-columns: repeat(2, 1fr); }
+    .pillar:nth-child(n){ padding-top: 20px; }
+  }
+
+  /* ===== CONCLUSIÓN ===== */
+  .conclusion{ padding: 88px 0 60px; text-align: left; }
+  .conclusion p.lead{
+    font-family:'Fraunces', serif; font-size: clamp(1.3rem, 3vw, 1.7rem);
+    max-width: 22ch; margin-bottom: 30px;
+  }
+  .conclusion .tagline{
+    font-family:'Fraunces', serif; font-style: italic; font-size: 1.2rem; color: var(--mustard-deep);
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top: 1px solid var(--paper-line);
+    padding: 30px 0 50px; font-size: 0.78rem; color: var(--ink-soft);
+  }
+  footer .refs{ margin-top: 10px; }
+  footer .refs div{ margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="nav wrap wrap--wide">
+  <strong>NOVA STUDIO</strong>
+  <span>Semana 1 — Productividad y economía digital</span>
+</div>
+
+<header class="hero paper-texture">
+  <div class="wrap">
+    <span class="kicker">NEWSLETTER · NOVA STUDIO</span>
+    <h1>Organizar el tiempo, <em>aprovechar</em> lo digital</h1>
+    <p class="lede">Tener acceso a la tecnología no nos hace productivos por sí solo. Esta semana vemos cómo organizar mejor nuestro tiempo y cómo la economía digital está cambiando la forma de crear negocios.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. PRODUCTIVIDAD PERSONAL -->
+  <section class="wrap">
+    <div class="section-num">01</div>
+    <h2 class="section-title">Productividad personal</h2>
+    <p>La productividad personal es la capacidad de utilizar de manera adecuada nuestro tiempo, energía y recursos para alcanzar determinados objetivos.</p>
+    <p>Ser productivo no significa simplemente hacer muchas cosas durante el día. Una persona puede estar ocupada durante horas y aun así no avanzar en sus objetivos. La verdadera productividad consiste en identificar qué actividades son importantes, organizarlas y realizarlas de una manera eficiente.</p>
+    <p>Por ejemplo, un estudiante puede tener cinco horas disponibles para estudiar, pero si pasa gran parte de ese tiempo revisando redes sociales probablemente no tendrá buenos resultados. En cambio, si organiza sus tareas, establece prioridades y utiliza periodos de concentración, puede conseguir mejores resultados en menos tiempo.</p>
+
+    <div class="callout">
+      <span class="neq">PRODUCTIVIDAD ≠ HACER MÁS.</span><br>
+      Productividad es conseguir mejores resultados utilizando bien nuestros recursos.
+    </div>
+    <p style="margin-top:22px;">La productividad actual también depende de saber manejar nuestra atención y energía, no solamente de controlar el tiempo.</p>
+  </section>
+
+  <!-- 2. HERRAMIENTAS -->
+  <section class="wrap wrap--wide paper-texture">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Herramientas de productividad personal</h2>
+    <p>Son recursos que ayudan a organizar tareas, administrar el tiempo, almacenar información y facilitar diferentes actividades. Algunas son digitales y otras son métodos de organización.</p>
+
+    <div class="tools-grid">
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        <h3>Calendarios</h3>
+        <p>Organizan eventos, fechas importantes, reuniones y entregas.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 12l4 4L19 6"/></svg>
+        <h3>Listas de tareas</h3>
+        <p>Registran pendientes y evitan olvidar responsabilidades.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v3h3M9 12h6M9 16h6"/></svg>
+        <h3>Notas</h3>
+        <p>Guardan ideas, apuntes y recordatorios en un solo lugar.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>
+        <h3>Temporizadores</h3>
+        <p>Dividen el trabajo y el descanso para mantener la atención.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0117.5 17H7z"/></svg>
+        <h3>Herramientas digitales</h3>
+        <p>Almacenan, comparten y permiten trabajar desde cualquier dispositivo.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="8" cy="8" r="2.5"/><path d="M3 19l6-7 4 4 3-4 5 7z"/></svg>
+        <h3>Herramientas creativas</h3>
+        <p>Crean presentaciones, publicaciones, videos e imágenes.</p>
+      </div>
+    </div>
+    <p style="margin-top:26px; font-size:0.95rem; color:var(--ink-soft);">Lo importante no es usar muchas herramientas al tiempo, sino escoger las que resuelvan una necesidad real. Un sistema de productividad debe ser sencillo y sostenible.</p>
+  </section>
+
+  <!-- 3. PROCESO -->
+  <section class="wrap">
+    <div class="section-num">03</div>
+    <h2 class="section-title">El proceso productivo</h2>
+    <p>La productividad puede entenderse como un proceso que comienza con identificar lo que necesitamos hacer y termina con la revisión de los resultados. La metodología GTD propone capturar, procesar, organizar y revisar para facilitar la ejecución.</p>
+
+    <div class="process">
+      <div class="step"><div class="n">1</div><h3>Capturar</h3><p>Registrar las tareas, ideas o responsabilidades pendientes.</p></div>
+      <div class="step"><div class="n">2</div><h3>Organizar</h3><p>Clasificar la información y ubicar cada actividad en su lugar.</p></div>
+      <div class="step"><div class="n">3</div><h3>Priorizar</h3><p>Determinar qué tareas son más importantes o urgentes.</p></div>
+      <div class="step"><div class="n">4</div><h3>Planificar</h3><p>Establecer cuándo y cómo se realizarán las actividades.</p></div>
+      <div class="step"><div class="n">5</div><h3>Ejecutar</h3><p>Realizar las tareas concentrándonos en el objetivo.</p></div>
+      <div class="step"><div class="n">6</div><h3>Revisar</h3><p>Comprobar los resultados y analizar qué podemos mejorar.</p></div>
+    </div>
+
+    <div class="example-box">
+      <span class="tag">EJEMPLO EN NOVA STUDIO</span>
+      Cliente solicita un diseño → se registra el pedido → se organiza la información → se establece una <strong>fecha de entrega</strong> → se realiza el diseño → se revisa con el cliente → se entrega el producto final.
+    </div>
+  </section>
+
+  <!-- 4. ECONOMÍA DIGITAL -->
+  <section class="pivot on-navy navy-texture">
+    <div class="wrap" style="padding-top: 10px;">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Economía digital</h2>
+      <p>Es el conjunto de actividades económicas que utilizan tecnologías digitales, internet, datos y sistemas conectados para producir, ofrecer, vender o consumir productos y servicios.</p>
+      <p>Hoy una empresa no necesita un establecimiento físico para llegar a sus clientes: redes sociales, páginas web, comercio electrónico, medios de pago digitales y herramientas de comunicación permiten desarrollar gran parte de sus actividades en línea. Esto abre oportunidades para emprendedores y pequeñas empresas, porque internet permite llegar a clientes fuera de la ciudad o del país.</p>
+      <p>Un ejemplo claro es NOVA STUDIO: el servicio puede ofrecerse y gestionarse por internet, desde la comunicación inicial con el cliente hasta la entrega del contenido digital.</p>
+    </div>
+  </section>
+
+  <!-- 5. CARACTERÍSTICAS -->
+  <section class="on-navy navy-texture" style="background:var(--navy); padding-top:20px;">
+    <div class="wrap wrap--wide">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Características de la economía digital</h2>
+      <div class="traits">
+        <div class="trait"><span class="mark">—</span><div><h3>Conectividad</h3><p>Internet conecta personas, empresas y clientes desde diferentes lugares.</p></div></div>
+        <div class="trait"><span class="mark">—</span><div><h3>Innovación</h3><p>Las tecnologías evolucionan y generan nuevas formas de ofrecer servicios.</p></div></div>
+        <div class="trait"><span class="mark">—</span><div><h3>Digitalización</h3><p>Productos y procesos se transforman y gestionan por medios digitales.</p></div></div>
+        <div class="trait"><span class="mark">—</span><div><h3>Uso de datos</h3><p>Permiten conocer mejor las necesidades de los consumidores.</p></div></div>
+        <div class="trait"><span class="mark">—</span><div><h3>Globalización</h3><p>Un negocio llega a distintos países sin estar físicamente allí.</p></div></div>
+        <div class="trait"><span class="mark">—</span><div><h3>Reducción de costos</h3><p>Menos gastos en infraestructura, comunicación y distribución.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PILARES -->
+  <section class="on-navy navy-texture" style="background:var(--navy); padding-bottom: 80px;">
+    <div class="wrap wrap--wide">
+      <div class="section-num">06</div>
+      <h2 class="section-title">Pilares de la economía digital</h2>
+      <p>Cuatro elementos fundamentales sostienen su funcionamiento.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="num">01</div><h3>Infraestructura digital</h3><p>Dispositivos, software, redes y servidores.</p></div>
+        <div class="pillar"><div class="num">02</div><h3>Comercio electrónico</h3><p>Comprar y vender por internet.</p></div>
+        <div class="pillar"><div class="num">03</div><h3>Negocios digitales</h3><p>Procesos empresariales adaptados al entorno digital.</p></div>
+        <div class="pillar"><div class="num">04</div><h3>Tecnologías emergentes</h3><p>IA, big data y blockchain automatizan procesos.</p></div>
+      </div>
+      <p style="margin-top:28px; font-size:0.9rem;">En NOVA STUDIO, la infraestructura digital permite crear y entregar contenidos, mientras internet facilita la comunicación con los clientes.</p>
+    </div>
+  </section>
+
+  <!-- CONCLUSIÓN -->
+  <section class="wrap conclusion paper-texture">
+    <p class="lead">Organizar el tiempo y aprovechar la tecnología son dos caras del mismo trabajo.</p>
+    <p>Una persona que organiza su tiempo y utiliza adecuadamente la tecnología puede desarrollar sus actividades de manera más eficiente. Una empresa que aprovecha las herramientas digitales puede llegar a más clientes, mejorar sus procesos y crear nuevas oportunidades. Conocer estos conceptos es clave para cualquiera que quiera estudiar, trabajar o emprender hoy.</p>
+    <p class="tagline">La tecnología no reemplaza la organización: la potencia.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>Referencias</div>
+  <div class="refs">
+    <div>Canva. (s. f.). Productividad laboral: La guía definitiva. Canva.</div>
+    <div>Slack. (2023). ¿Cómo desarrollar y mejorar la productividad personal? Slack.</div>
+    <div>World Economic Forum. (2015). Los hábitos fundamentales de la productividad personal.</div>
+    <div>Universidad Internacional de La Rioja. (2026). ¿Qué es la economía digital en Colombia? UNIR.</div>
+  </div>
+</footer>
+
+</body>
+</html>

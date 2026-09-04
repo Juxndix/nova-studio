@@ -214,29 +214,116 @@
 
   /* ===== FOOTER ===== */
   footer{
-    border-top: 1px solid var(--paper-line);
-    padding: 30px 0 50px; font-size: 0.78rem; color: var(--ink-soft);
+    border-top: 1px solid var(--navy-line);
+    padding: 40px 0 50px; font-size: 0.78rem; color: #9CA3B4;
+    background: var(--navy);
   }
-  footer .refs{ margin-top: 10px; }
-  footer .refs div{ margin-bottom: 4px; }
+  footer strong{ font-family:'Fraunces', serif; color: var(--paper-on-navy); display:block; margin-bottom: 6px; font-size:1rem; }
+
+  /* ===== REFERENCIAS (inline, end of week) ===== */
+  .refs{ margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--paper-line); font-size: 0.78rem; color: var(--ink-soft); }
+  .refs .refs-label{ font-family:'Fraunces', serif; color: var(--mustard-deep); margin-bottom: 8px; display:block; }
+  .on-navy .refs{ border-top-color: var(--navy-line); }
+  .refs div{ margin-bottom: 4px; }
+
+  /* ===== STICKY NAV MENU ===== */
+  .menubar{
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(237,230,216,0.92); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .menubar .wrap{ display:flex; justify-content: space-between; align-items:center; padding: 16px 28px; }
+  .menubar strong{ font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; }
+  .menubar nav{ display:flex; gap: 22px; }
+  .menubar nav a{ font-size: 0.86rem; text-decoration:none; color: var(--ink-soft); border-bottom: 1.5px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s; }
+  .menubar nav a:hover{ color: var(--ink); border-color: var(--mustard); }
+  @media(max-width: 560px){
+    .menubar nav{ gap: 12px; }
+    .menubar nav a{ font-size: 0.76rem; }
+  }
+
+  /* ===== WEEK BANNER (chapter divider) ===== */
+  .week-banner{
+    background: var(--ink); color: var(--paper);
+    padding: 46px 0 40px;
+  }
+  .week-banner .wk-label{ font-size: 0.82rem; color: #C9B98A; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .week-banner h2{ font-family:'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--paper); }
+  .week-banner p{ color: #B8B3A4; margin-top: 12px; max-width: 52ch; }
+
+  /* ===== 5 V's — Big Data ===== */
+  .vgrid{ margin-top: 30px; }
+  .vrow{
+    display:grid; grid-template-columns: 64px 1fr; gap: 20px;
+    padding: 20px 0; border-top: 1px solid var(--paper-line);
+    align-items: start;
+  }
+  .vgrid .vrow:last-child{ border-bottom: 1px solid var(--paper-line); }
+  .vrow .vletter{ font-family:'Fraunces', serif; font-size: 2.1rem; color: var(--teal); line-height:1; }
+  .vrow h3{ font-size: 1.02rem; font-weight:600; margin-bottom: 4px; }
+  .vrow p{ font-size: 0.92rem; color: var(--ink-soft); margin:0; }
+
+  /* ===== DOFA ===== */
+  .dofa-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
+  .dofa-cell{ padding: 20px 22px; border-top: 3px solid var(--teal); background: rgba(31,111,99,0.06); }
+  .dofa-cell.neg{ border-top-color: var(--ink-soft); background: rgba(32,31,26,0.045); }
+  .dofa-cell h3{ font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
+  .dofa-cell ul{ margin: 0; padding-left: 18px; font-size: 0.88rem; color: var(--ink-soft); }
+  .dofa-cell li{ margin-bottom: 6px; }
+  @media(max-width: 620px){
+    .dofa-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ===== NOTICIAS ===== */
+  .news-list{ margin-top: 30px; display:grid; gap: 16px; }
+  .news-card{
+    display:grid; grid-template-columns: 1fr; gap: 8px;
+    padding: 22px 24px; background: rgba(231,228,218,0.04);
+    border: 1px solid var(--navy-line);
+  }
+  .news-card .meta{ display:flex; gap: 10px; align-items:center; font-size: 0.76rem; color: var(--sky); }
+  .news-card .badge{
+    display:inline-block; font-size: 0.7rem; padding: 2px 8px;
+    border: 1px solid var(--mustard); color: var(--mustard); border-radius: 2px;
+  }
+  .news-card h3{ font-size: 1.08rem; font-weight:600; color: var(--paper-on-navy); margin: 2px 0 2px; font-family:'Space Grotesk',sans-serif; }
+  .news-card p{ font-size: 0.92rem; margin: 0; }
+  .news-card a.rd{ font-size: 0.84rem; color: var(--sky); text-decoration:none; border-bottom: 1px solid var(--sky); width: fit-content; }
+  .news-card a.rd:hover{ opacity: 0.8; }
 </style>
 </head>
 <body>
 
-<div class="nav wrap wrap--wide">
-  <strong>NOVA STUDIO</strong>
-  <span>Semana 1 — Productividad y economía digital</span>
+<div class="menubar">
+  <div class="wrap wrap--wide">
+    <strong>NOVA STUDIO</strong>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#semana1">Semana 1</a>
+      <a href="#semana2">Semana 2</a>
+      <a href="#noticias">Noticias</a>
+    </nav>
+  </div>
 </div>
 
-<header class="hero paper-texture">
+<header id="inicio" class="hero paper-texture">
   <div class="wrap">
-    <span class="kicker">NEWSLETTER · NOVA STUDIO</span>
-    <h1>Organizar el tiempo, <em>aprovechar</em> lo digital</h1>
-    <p class="lede">Tener acceso a la tecnología no nos hace productivos por sí solo. Esta semana vemos cómo organizar mejor nuestro tiempo y cómo la economía digital está cambiando la forma de crear negocios.</p>
+    <span class="kicker">ESTUDIO DE DISEÑO DIGITAL</span>
+    <h1>Ideas que se <em>diseñan</em>, negocios que se <em>organizan</em></h1>
+    <p class="lede">NOVA STUDIO es un estudio de diseño y contenido digital gestionado por completo en línea: identidad visual, invitaciones, piezas para redes y sitios web, entregados desde el primer contacto hasta la publicación final.</p>
+    <p class="lede" style="margin-top: -6px; font-size: 1rem;">Este sitio también funciona como bitácora del proyecto: cada semana documentamos lo que aprendemos y cómo lo aplicamos al negocio.</p>
   </div>
 </header>
 
 <main>
+
+  <div id="semana1" class="week-banner paper-texture" style="background:var(--ink);">
+    <div class="wrap">
+      <span class="wk-label">ENTRADA · SEMANA 01</span>
+      <h2>Productividad personal y economía digital</h2>
+      <p>Cómo organizar mejor nuestro tiempo y aprovechar las oportunidades del mundo digital.</p>
+    </div>
+  </div>
 
   <!-- 1. PRODUCTIVIDAD PERSONAL -->
   <section class="wrap">
@@ -358,18 +445,328 @@
     </div>
   </section>
 
-  <!-- CONCLUSIÓN -->
+  <!-- CONCLUSIÓN SEMANA 1 -->
   <section class="wrap conclusion paper-texture">
     <p class="lead">Organizar el tiempo y aprovechar la tecnología son dos caras del mismo trabajo.</p>
     <p>Una persona que organiza su tiempo y utiliza adecuadamente la tecnología puede desarrollar sus actividades de manera más eficiente. Una empresa que aprovecha las herramientas digitales puede llegar a más clientes, mejorar sus procesos y crear nuevas oportunidades. Conocer estos conceptos es clave para cualquiera que quiera estudiar, trabajar o emprender hoy.</p>
     <p class="tagline">La tecnología no reemplaza la organización: la potencia.</p>
+
+    <div class="refs">
+      <span class="refs-label">Referencias</span>
+      <div>Canva. (s. f.). Productividad laboral: La guía definitiva. Canva.</div>
+      <div>Slack. (2023). ¿Cómo desarrollar y mejorar la productividad personal? Slack.</div>
+      <div>World Economic Forum. (2015). Los hábitos fundamentales de la productividad personal.</div>
+      <div>Universidad Internacional de La Rioja. (2026). ¿Qué es la economía digital en Colombia? UNIR.</div>
+    </div>
+  </section>
+
+  <!-- ===================== SEMANA 02 — BIG DATA ===================== -->
+
+  <div id="semana2" class="week-banner navy-texture" style="background:var(--navy);">
+    <div class="wrap">
+      <span class="wk-label" style="color:var(--sky);">ENTRADA · SEMANA 02</span>
+      <h2>Plan estratégico, marca y datos</h2>
+      <p>Cómo definimos hacia dónde va NOVA STUDIO, qué nos sostiene como marca y cómo los datos ayudan a decidir mejor.</p>
+    </div>
+  </div>
+
+  <!-- 07. PLAN ESTRATÉGICO -->
+  <section class="wrap">
+    <div class="section-num">07</div>
+    <h2 class="section-title">Plan estratégico</h2>
+    <p>Un plan estratégico define hacia dónde va un negocio y cómo va a llegar allí. No basta con tener una buena idea: hay que ponerle una dirección clara, con una misión que explique para qué existe el negocio hoy y una visión que diga qué quiere lograr a futuro.</p>
+
+    <div class="tools-grid">
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3l7 4v10l-7 4-7-4V7z"/><path d="M12 3v18"/></svg>
+        <h3>Misión</h3>
+        <p>Ayudar a personas y pequeños negocios a comunicar su idea con un diseño digital claro y accesible.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
+        <h3>Visión</h3>
+        <p>Convertirse en un estudio de referencia para emprendimientos en Bucaramanga y municipios cercanos.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 13l4 4L19 7"/></svg>
+        <h3>Objetivo estratégico</h3>
+        <p>Consolidar una cartera fija de clientes mensuales con paquetes de diseño accesibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08. VALORES -->
+  <section class="wrap wrap--wide paper-texture">
+    <div class="section-num">08</div>
+    <h2 class="section-title">Valores</h2>
+    <p>Los valores son los principios que guían las decisiones del día a día, incluso cuando nadie los está revisando. Son lo que hace que un cliente vuelva a contratar el servicio, más allá del diseño en sí.</p>
+
+    <div class="tools-grid">
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+        <h3>Creatividad</h3>
+        <p>Cada proyecto parte de una idea propia, no de una plantilla genérica.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>
+        <h3>Compromiso</h3>
+        <p>Cumplir lo acordado con el cliente, en tiempo y en forma.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Calidad</h3>
+        <p>Revisar cada entrega antes de mandarla, sin dar nada por terminado a medias.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a4 4 0 018-1 4 4 0 018 1c0 5.5-9 10-9 10z"/></svg>
+        <h3>Cercanía</h3>
+        <p>Hablarle al cliente en un lenguaje claro, sin tecnicismos innecesarios.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        <h3>Puntualidad</h3>
+        <p>Respetar las fechas de entrega acordadas desde el inicio.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 3 5-6"/></svg>
+        <h3>Aprendizaje continuo</h3>
+        <p>Probar herramientas y técnicas nuevas en cada proyecto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. DOFA -->
+  <section class="wrap">
+    <div class="section-num">09</div>
+    <h2 class="section-title">Análisis DOFA</h2>
+    <p>El DOFA cruza dos miradas: lo que pasa adentro del negocio (fortalezas y debilidades) y lo que pasa afuera, en el entorno (oportunidades y amenazas). Sirve para tomar decisiones con los ojos abiertos, no solo con optimismo.</p>
+
+    <div class="dofa-grid">
+      <div class="dofa-cell">
+        <h3>Fortalezas</h3>
+        <ul>
+          <li>Diseño personalizado y entregas rápidas.</li>
+          <li>Manejo de herramientas digitales actualizadas.</li>
+          <li>Precios accesibles para emprendedores locales.</li>
+        </ul>
+      </div>
+      <div class="dofa-cell">
+        <h3>Oportunidades</h3>
+        <ul>
+          <li>Crecimiento constante de la economía digital.</li>
+          <li>Cada vez más emprendimientos necesitan presencia en redes.</li>
+          <li>Posibilidad de atender clientes fuera de la ciudad.</li>
+        </ul>
+      </div>
+      <div class="dofa-cell neg">
+        <h3>Debilidades</h3>
+        <ul>
+          <li>Equipo pequeño: una sola persona a cargo de todo.</li>
+          <li>Portafolio todavía en construcción.</li>
+          <li>Capacidad limitada para atender varios proyectos a la vez.</li>
+        </ul>
+      </div>
+      <div class="dofa-cell neg">
+        <h3>Amenazas</h3>
+        <ul>
+          <li>Plantillas gratuitas e IA generativa como competencia.</li>
+          <li>Clientes que subestiman el valor del diseño.</li>
+          <li>Tendencias visuales que cambian rápido.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. MARCA PERSONAL -->
+  <section class="wrap wrap--wide paper-texture">
+    <div class="section-num">10</div>
+    <h2 class="section-title">Marca personal</h2>
+    <p>La marca personal es la forma en que un negocio —o una persona— es percibido a partir de su estilo, su tono y su manera de comunicarse. No es solo un logo: es la coherencia entre lo que se dice, cómo se ve y cómo se entrega el trabajo.</p>
+
+    <div class="tools-grid">
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <h3>Voz y tono</h3>
+        <p>Cercano pero profesional, sin sonar ni muy formal ni muy informal.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="7" cy="12" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="17" cy="17" r="3"/></svg>
+        <h3>Identidad visual</h3>
+        <p>La misma paleta y tipografía en el sitio, las redes y las entregas al cliente.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>
+        <h3>Portafolio</h3>
+        <p>Proyectos organizados por tipo de servicio, fáciles de mostrar a un cliente nuevo.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
+        <h3>Presencia en redes</h3>
+        <p>Una vitrina activa donde se muestra el proceso, no solo el resultado final.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. QUÉ ES BIG DATA -->
+  <section class="wrap">
+    <div class="section-num">11</div>
+    <h2 class="section-title">¿Qué es Big Data?</h2>
+    <p>Big Data es el término con el que se conocen los conjuntos de datos tan grandes, rápidos o variados que las herramientas tradicionales de gestión de información ya no alcanzan para procesarlos. Provienen de fuentes muy distintas: redes sociales, compras en línea, sensores, aplicaciones móviles o formularios web.</p>
+    <p>No se trata solo de tener mucha información, sino de poder extraer valor de ella: identificar patrones de comportamiento, anticipar necesidades y tomar decisiones con más certeza. Las organizaciones que saben leer sus datos tienen una ventaja frente a las que deciden únicamente por intuición.</p>
+
+    <div class="callout">
+      <span class="neq">BIG DATA ≠ SOLO "MUCHOS DATOS".</span><br>
+      Big Data es la capacidad de convertir información dispersa en decisiones concretas.
+    </div>
+  </section>
+
+  <!-- 08. LAS 5 V -->
+  <section class="wrap wrap--wide paper-texture">
+    <div class="section-num">12</div>
+    <h2 class="section-title">Las 5 V del Big Data</h2>
+    <p>Estas cinco características, propuestas originalmente por la consultora Gartner, describen qué hace que un conjunto de datos se considere "grande" y qué retos implica gestionarlo.</p>
+
+    <div class="vgrid">
+      <div class="vrow"><span class="vletter">V</span><div><h3>Volumen</h3><p>La cantidad de datos generados: desde miles hasta miles de millones de registros diarios.</p></div></div>
+      <div class="vrow"><span class="vletter">V</span><div><h3>Velocidad</h3><p>La rapidez con la que se crean y deben procesarse los datos, muchas veces en tiempo real.</p></div></div>
+      <div class="vrow"><span class="vletter">V</span><div><h3>Variedad</h3><p>Los distintos formatos de la información: texto, imágenes, video, ubicación, transacciones.</p></div></div>
+      <div class="vrow"><span class="vletter">V</span><div><h3>Veracidad</h3><p>La calidad y confiabilidad de los datos: de nada sirve tener mucha información si es incorrecta.</p></div></div>
+      <div class="vrow"><span class="vletter">V</span><div><h3>Valor</h3><p>El beneficio real que se obtiene al analizar los datos: mejores decisiones y relaciones con el cliente.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 09. PROCESO DEL DATO -->
+  <section class="wrap">
+    <div class="section-num">13</div>
+    <h2 class="section-title">Cómo se trabaja con Big Data</h2>
+    <p>Al igual que la productividad personal, el manejo de datos sigue un proceso: no basta con recolectar información, hay que convertirla en decisiones.</p>
+
+    <div class="process">
+      <div class="step"><div class="n">1</div><h3>Recolectar</h3><p>Reunir datos desde formularios, redes, ventas o herramientas digitales.</p></div>
+      <div class="step"><div class="n">2</div><h3>Almacenar</h3><p>Guardar la información de forma ordenada, generalmente en la nube.</p></div>
+      <div class="step"><div class="n">3</div><h3>Procesar</h3><p>Limpiar y organizar los datos para que sean utilizables.</p></div>
+      <div class="step"><div class="n">4</div><h3>Analizar</h3><p>Buscar patrones, tendencias y relaciones dentro de la información.</p></div>
+      <div class="step"><div class="n">5</div><h3>Visualizar</h3><p>Presentar los resultados en gráficos o paneles fáciles de leer.</p></div>
+      <div class="step"><div class="n">6</div><h3>Decidir</h3><p>Usar esos hallazgos para tomar mejores decisiones de negocio.</p></div>
+    </div>
+
+    <div class="example-box">
+      <span class="tag">EJEMPLO EN NOVA STUDIO</span>
+      Se revisan las solicitudes de los últimos meses → se agrupan por tipo de servicio → se detecta que los <strong>diseños para eventos</strong> son los más pedidos → se decide crear un paquete especial para ese servicio → se mide si aumentan las ventas.
+    </div>
+  </section>
+
+  <!-- 10. HERRAMIENTAS DE BIG DATA -->
+  <section class="wrap wrap--wide paper-texture">
+    <div class="section-num">14</div>
+    <h2 class="section-title">Herramientas para trabajar con datos</h2>
+    <p>No hace falta ser una gran corporación para aprovechar los datos: hoy existen herramientas accesibles para negocios pequeños y medianos.</p>
+
+    <div class="tools-grid">
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg>
+        <h3>Hojas de cálculo</h3>
+        <p>Excel o Google Sheets para ordenar y analizar datos básicos.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19V9M12 19V4M20 19v-6"/></svg>
+        <h3>Paneles de visualización</h3>
+        <p>Power BI o Looker Studio para mostrar resultados en gráficos.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+        <h3>Analítica web</h3>
+        <p>Google Analytics para entender cómo llegan y navegan los visitantes.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        <h3>Bases de datos</h3>
+        <p>Guardan de forma ordenada la información de clientes y pedidos.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0117.5 17H7z"/></svg>
+        <h3>Almacenamiento en la nube</h3>
+        <p>Guarda grandes volúmenes de datos accesibles desde cualquier lugar.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+        <h3>IA y automatización</h3>
+        <p>Detectan patrones y sugieren decisiones sin revisar todo manualmente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSIÓN SEMANA 2 -->
+  <section class="wrap conclusion paper-texture">
+    <p class="lead">Los datos no reemplazan el criterio: lo respaldan con evidencia.</p>
+    <p>Big Data conecta directamente con la productividad y la economía digital vistas en la semana 1: capturar y organizar información —ya sean tareas o datos de clientes— es lo que permite tomar mejores decisiones con menos esfuerzo. Para un negocio como NOVA STUDIO, entender qué piden los clientes y cómo se comportan es la diferencia entre adivinar y decidir con evidencia.</p>
+    <p class="tagline">Más datos no significa más ruido: significa mejores decisiones.</p>
+
+    <div class="refs">
+      <span class="refs-label">Referencias</span>
+      <div>Teradata. (s. f.). What are the 5 V's of Big Data? Teradata.</div>
+      <div>ComputerWeekly en Español. (2023). Las cinco V de big data. TechTarget.</div>
+      <div>BBVA. (s. f.). ¿Cuáles son los 5 principios de la Big Data? BBVA.</div>
+      <div>El Español. (2026). La economía digital repuntará un 9,5% en 2026. El Español.</div>
+    </div>
+  </section>
+
+  <!-- ===================== NOTICIAS ===================== -->
+  <section id="noticias" class="on-navy navy-texture" style="background:var(--navy); padding-bottom:80px;">
+    <div class="wrap wrap--wide">
+      <div class="section-num">15</div>
+      <h2 class="section-title">Noticias del sector y del estudio</h2>
+      <p>Novedades de la economía digital y del big data, junto con lo que va pasando dentro de NOVA STUDIO.</p>
+
+      <div class="news-list">
+        <div class="news-card">
+          <div class="meta"><span>Abril 2026 · El Español</span></div>
+          <h3>La economía digital crecerá 9,5% en 2026, impulsada por la IA</h3>
+          <p>La economía digital mundial alcanzaría los 28 billones de dólares este año, cerca de una cuarta parte del PIB global, con la inteligencia artificial como motor de productividad.</p>
+          <a class="rd" href="https://www.elespanol.com/invertia/disruptores/politica-digital/20260430/economia-digital-repuntara-retos-soberania-energia-empleabilidad/1003744227176_0.html" target="_blank" rel="noopener">Leer más ↗</a>
+        </div>
+
+        <div class="news-card">
+          <div class="meta"><span>Enero 2026 · ComputerWeekly</span></div>
+          <h3>Cuatro tendencias marcarán la gestión de datos e IA en 2026</h3>
+          <p>El reporte señala más fusiones entre proveedores de datos y una presión creciente por simplificar el desarrollo de sistemas basados en inteligencia artificial.</p>
+          <a class="rd" href="https://www.computerweekly.com/es/recursos/Big-data-y-gestion-de-la-informacion" target="_blank" rel="noopener">Leer más ↗</a>
+        </div>
+
+        <div class="news-card">
+          <div class="meta"><span>Enero 2026 · Gestión</span></div>
+          <h3>Los empleos que liderarán 2030 dependerán del manejo de datos</h3>
+          <p>Un análisis del Foro Económico Mundial anticipa que la IA y la gestión avanzada de datos obligarán a las empresas a repensar sus equipos y procesos.</p>
+          <a class="rd" href="https://gestion.pe/noticias/big-data/" target="_blank" rel="noopener">Leer más ↗</a>
+        </div>
+
+        <div class="news-card">
+          <div class="meta"><span class="badge">NOVA STUDIO</span><span>Marzo 2026</span></div>
+          <h3>Cerramos el primer trimestre con 12 proyectos entregados</h3>
+          <p>Entre invitaciones digitales, identidad visual y piezas para redes, el estudio completó su primer trimestre activo con clientes en tres ciudades distintas.</p>
+        </div>
+
+        <div class="news-card">
+          <div class="meta"><span class="badge">NOVA STUDIO</span><span>Marzo 2026</span></div>
+          <h3>Empezamos a medir qué servicios se piden más</h3>
+          <p>Aplicando lo visto en Big Data, el estudio comenzó a registrar sus solicitudes para detectar patrones y ajustar sus paquetes de servicio.</p>
+        </div>
+
+        <div class="news-card">
+          <div class="meta"><span class="badge">NOVA STUDIO</span><span>Próximamente</span></div>
+          <h3>Nuevo servicio: identidad visual express en 5 días</h3>
+          <p>Pensado para emprendimientos que necesitan una imagen profesional rápida, sin sacrificar un proceso de diseño cuidado.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<footer class="wrap">
-  <div>Juan Diego Guerrero</div>
-
+<footer class="wrap wrap--wide">
+  <strong>NOVA STUDIO</strong>
+  Bitácora del proyecto — Semana 1: Productividad y economía digital · Semana 2: Plan estratégico, valores, DOFA, marca personal y Big Data.
+  <div style="margin-top:14px;">Juan Diego Guerrero Ramirez 11°</div>
 </footer>
 
 </body>

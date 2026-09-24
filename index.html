@@ -290,6 +290,46 @@
   .news-card p{ font-size: 0.92rem; margin: 0; }
   .news-card a.rd{ font-size: 0.84rem; color: var(--sky); text-decoration:none; border-bottom: 1px solid var(--sky); width: fit-content; }
   .news-card a.rd:hover{ opacity: 0.8; }
+
+  /* ===== SEMANA 4: REDES SOCIALES ===== */
+  .social-head{
+    display:flex; gap:20px; align-items:center; flex-wrap:wrap;
+    margin-top:30px; padding:22px 24px;
+    border:1px solid var(--navy-line); background:rgba(231,228,218,0.04);
+  }
+  .avatar{
+    width:72px; height:72px; border-radius:50%; flex:none;
+    background:var(--mustard); color:var(--navy);
+    display:grid; place-items:center;
+    font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem;
+  }
+  .social-info{ flex:1; min-width:220px; }
+  .social-info h3{ font-family:'Space Grotesk',sans-serif; font-size:1.1rem; color:var(--paper-on-navy); margin-bottom:2px; }
+  .social-info .handle{ font-size:0.82rem; color:var(--sky); }
+  .social-info p{ font-size:0.9rem; margin:8px 0 0; }
+  .social-btn{
+    display:inline-block; padding:10px 18px; font-size:0.85rem; font-weight:600;
+    background:var(--mustard); color:var(--navy); text-decoration:none; border-radius:2px;
+  }
+  .social-btn:hover{ opacity:0.85; }
+  .post-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px; }
+  @media(max-width:700px){ .post-grid{ grid-template-columns:1fr; } }
+  .post{ display:flex; flex-direction:column; border:1px solid var(--navy-line); background:rgba(231,228,218,0.04); }
+  .post-art{
+    aspect-ratio:1/1; padding:20px; display:flex; flex-direction:column; justify-content:space-between;
+    font-family:'Fraunces',serif;
+  }
+  .post-art small{ font-family:'Space Grotesk',sans-serif; font-size:0.7rem; letter-spacing:0.12em; font-weight:600; }
+  .post-art strong{ font-size:1.5rem; line-height:1.1; font-weight:600; }
+  .art-1{ background:var(--mustard); color:var(--ink); }
+  .art-2{ background:var(--teal); color:var(--paper-on-navy); }
+  .art-3{ background:var(--paper); color:var(--ink); }
+  .post-body{ padding:16px 18px 18px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .post-body p{ font-size:0.86rem; margin:0; color:var(--paper-on-navy); }
+  .post-body a{ margin-top:auto; font-size:0.82rem; color:var(--sky); text-decoration:none; border-bottom:1px solid var(--sky); width:fit-content; }
+  .map-link{ margin-top:36px; padding:20px 24px; border:1px dashed var(--mustard); }
+  .map-link h3{ font-family:'Space Grotesk',sans-serif; font-size:1rem; color:var(--paper-on-navy); margin-bottom:6px; }
+  .map-link p{ font-size:0.9rem; margin:0 0 12px; }
 </style>
 </head>
 <body>
@@ -302,6 +342,7 @@
       <a href="#semana1">Semana 1</a>
       <a href="#semana2">Semana 2</a>
       <a href="#noticias">Noticias</a>
+      <a href="#redes">Redes</a>
     </nav>
   </div>
 </div>
@@ -719,6 +760,13 @@
       <p>Novedades de la economía digital y del big data, junto con lo que va pasando dentro de NOVA STUDIO.</p>
 
       <div class="news-list">
+        <div class="news-card" id="nova-abre">
+          <div class="meta"><span class="badge">NOVA STUDIO</span><span>Septiembre 2026</span></div>
+          <h3>NOVA STUDIO abre sus puertas: diseño 100 % digital para marcas que quieren destacar</h3>
+          <p>Imaginemos una marca que nace hoy: necesita una identidad, presencia en redes y un sitio web. NOVA STUDIO lo resuelve todo desde un solo lugar, con invitaciones digitales, identidad de marca, contenido para redes y diseño web, sin salir de casa y con seguimiento desde el primer contacto hasta la publicación final. Los invitamos a conocer el portafolio y a seguirnos en Instagram.</p>
+          <a class="rd" href="#redes">Síguenos en Instagram ↓</a>
+        </div>
+
         <div class="news-card">
           <div class="meta"><span>Abril 2026 · El Español</span></div>
           <h3>La economía digital crecerá 9,5% en 2026, impulsada por la IA</h3>
@@ -757,6 +805,70 @@
           <h3>Nuevo servicio: identidad visual express en 5 días</h3>
           <p>Pensado para emprendimientos que necesitan una imagen profesional rápida, sin sacrificar un proceso de diseño cuidado.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SEMANA 4: REDES SOCIALES ===================== -->
+  <section id="redes" class="on-navy navy-texture" style="background:var(--navy); padding-bottom:80px;">
+    <div class="wrap wrap--wide">
+      <div class="section-num">16</div>
+      <h2 class="section-title">NOVA STUDIO en redes</h2>
+      <p>Instagram es nuestra vitrina visual: ahí mostramos el portafolio, damos tips de diseño y llevamos a los clientes de vuelta a este sitio para cotizar.</p>
+
+      <div class="social-head">
+        <div class="avatar">NS</div>
+        <div class="social-info">
+          <h3>NOVA STUDIO · Diseño digital</h3>
+          <div class="handle">@novastudio.co · Instagram</div>
+          <p>Invitaciones digitales, identidad de marca, contenido para redes y diseño web. 100 % online ✨</p>
+        </div>
+        <a class="social-btn" href="https://www.instagram.com/TU_USUARIO/" target="_blank" rel="noopener">Seguir ↗</a>
+      </div>
+
+      <div class="post-grid">
+        <div class="post">
+          <div class="post-art art-1">
+            <small>NOVA STUDIO</small>
+            <strong>Nace NOVA STUDIO ✨</strong>
+            <small>DISEÑO DIGITAL DE PRINCIPIO A FIN</small>
+          </div>
+          <div class="post-body">
+            <p><b>Presentación.</b> Nace NOVA STUDIO ✨ diseño digital de principio a fin: invitaciones, marca, redes y web. Conócenos 👉 link en la bio.</p>
+            <a href="https://juxndix.github.io/nova-studio/">Ir al sitio ↗</a>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-art art-2">
+            <small>TIP DE MARCA</small>
+            <strong>3 errores que arruinan tu identidad</strong>
+            <small>PALETA · TIPOGRAFÍA · LOGO</small>
+          </div>
+          <div class="post-body">
+            <p><b>Tip.</b> Paleta sin criterio, tipografías de más y logo sin versión monocromática. Evítalos y tu marca se verá profesional. Más en 👉 link en la bio.</p>
+            <a href="https://juxndix.github.io/nova-studio/#noticias">Leer la noticia ↗</a>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-art art-3">
+            <small>SERVICIO</small>
+            <strong>Invitaciones que se comparten solas 💌</strong>
+            <small>ANIMADAS · 100 % DIGITALES</small>
+          </div>
+          <div class="post-body">
+            <p><b>Servicio.</b> ¿Tu evento merece una invitación que se comparta sola? Invitaciones digitales animadas  Cotiza aquí 👉 link en la bio.</p>
+            <a href="https://juxndix.github.io/nova-studio/">Cotizar ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-link">
+        <h3>Mapa conceptual de la estrategia de comunicación</h3>
+        <p>Modelo web, redes sociales, trabajo en equipo y software colaborativo de NOVA STUDIO, en un solo mapa.</p>
+        <a class="social-btn" href="PEGA_AQUI_EL_ENLACE_DE_DRIVE" target="_blank" rel="noopener">Ver mapa ↗</a>
       </div>
     </div>
   </section>
